@@ -17,10 +17,10 @@ If you see Error Message: "Forbidden 403 Access to this resource on the server i
 
 Even though I had disabled it through the VPS, the site was somehow still running it until I added this to the .htaccess file:
 
-<IfModule mod_security.c>
-  
+```
+<IfModule mod_security.c> 
 SecFilterEngine Off
-
 SecFilterScanPOST Off
-
 </IfModule>
+
+```
