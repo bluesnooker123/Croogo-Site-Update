@@ -1,0 +1,97 @@
+<IfModule mod_rewrite.c>
+
+  Redirect 301 /our-service/Warwick-Estates-Complaints-Procedure-Review-July-2019-Master /about/
+  Redirect 301 /our-service /services/
+  Redirect 301 /our-offices /contact/
+  Redirect 301 /open-box /about/
+  Redirect 301 /premier /services/warwick-premier/
+  Redirect 301 /lite /services/warwick-lite/
+  Redirect 301 /gdpr /privacy-policy/
+  Redirect 301 /cookie-policy /terms-of-use/
+  Redirect 301 /category/company-news /about/
+  Redirect 301 /category/events /about/
+  Redirect 301 /category/new-business /about/
+  Redirect 301 /hello-world /about/
+  Redirect 301 /announcement /about/
+  Redirect 301 /fire-safety /about/
+  Redirect 301 /privacy-policy-who-we-are /privacy-policy/
+  Redirect 301 /warwick-estates-has-been-shortlisted-at-the-news-on-the-block-property-management-awards-with-a-total-of-seven-awards /about/
+  Redirect 301 /warwick-estates-shortlisted-3-awards /about/
+  Redirect 301 /cih-conference-manchester /about/
+  Redirect 301 /warwick-estates-make-arma-ace-shortlist /about/
+  Redirect 301 /new-head-office /about/
+  Redirect 301 /warwick-return-mipim /about/
+  Redirect 301 /warwick-powerhouse /about/
+  Redirect 301 /expanding-in-the-north /about/
+  Redirect 301 /news/22 /about/
+  Redirect 301 /page/academy /culture/academy
+  Redirect 301 /page/employment /culture/employment
+  Redirect 301 /page/giving-back /culture/giving-back
+  Redirect 301 /news/21 /about/
+  Redirect 301 /news/20 /about/
+  Redirect 301 /news/19 /about/
+  Redirect 301 /news/18 /about/
+  Redirect 301 /news/17 /about/
+  Redirect 301 /news/16 /about/
+  Redirect 301 /news/15 /about/
+  Redirect 301 /news/14 /about/
+  Redirect 301 /news/13 /about/
+  Redirect 301 /news/12 /about/
+  Redirect 301 /news/11 /about/
+  Redirect 301 /news/10 /about/
+  Redirect 301 /news/9 /about/
+  Redirect 301 /news/8 /about/
+  Redirect 301 /news/7 /about/
+  Redirect 301 /news/6 /about/
+  Redirect 301 /news/5 /about/
+  Redirect 301 /news/4 /about/
+  Redirect 301 /news/3 /about/
+  Redirect 301 /news/2 /about/
+  Redirect 301 /news/1 /about/
+  Redirect 301 /privacy-policy-who-we-are-2-3-2 /privacy-policy/
+  Redirect 301 /privacy-policy-who-we-are-2-2-2 /privacy-policy/
+  Redirect 301 /wp-content/uploads/The-Right-to-Manage-Guide.pdf /about/
+  Redirect 301 /privacy-policy-who-we-are-2-2-2-2 /privacy-policy/
+  Redirect 301 /privacy-policy-who-we-are-2-3-2-2 /privacy-policy/
+  Redirect 301 /privacy-policy-who-we-are-2-3-2-2-2 /privacy-policy/
+  Redirect 301 /wp-content/uploads/Warwick-Estates-Complaints-Procedure-Review-July-2019-Master.pdf /about/
+  Redirect 301 /page/32/?q=taxonomy%2Fterm%2F12%2F0 /about/
+  Redirect 301 /page/26/?q=taxonomy%2Fterm%2F12%2F0 /about/
+  Redirect 301 /page/5/?q=taxonomy%2Fterm%2F12%2F0 /about/
+  Redirect 301 /wp-content/uploads/Ombudsman-Resid-Lease-Man.pdf /about/
+
+  RewriteEngine on
+
+  # remove trailing slash
+  RewriteCond %{REQUEST_METHOD} =GET
+  RewriteCond %{REQUEST_URI} !^/admin(.*)?
+  RewriteCond %{REQUEST_URI} !^/grasp(.*)?
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} (.+)/$
+  RewriteRule ^ %1 [R=301,L]
+
+  # force https
+  RewriteCond %{SERVER_PORT} ^80$
+  RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
+
+  # remove www from host
+  RewriteCond %{HTTP_HOST} ^www\.(.+)
+  RewriteCond %{HTTPS}s/%1 ^(on(s)|offs)/(.+)
+  RewriteRule ^ http%2://%3%{REQUEST_URI} [L,R=301]
+
+  RewriteRule    ^$    webroot/    [L]
+  RewriteRule    (.*) webroot/$1    [L]
+
+</IfModule>
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php71” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php71 .php .php7 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
+
+<IfModule mod_security.c>
+SecFilterEngine Off
+SecFilterScanPOST Off
+</IfModule>
